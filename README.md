@@ -1,5 +1,10 @@
 # Hump
 
+![PyPI - License](https://img.shields.io/pypi/l/hump?style=for-the-badge)
+![PyPI - Types](https://img.shields.io/pypi/types/hump?style=for-the-badge)
+![PyPI - Version](https://img.shields.io/pypi/v/hump?style=for-the-badge)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/hump?style=for-the-badge)
+
 Hump (a defining part of grizzly's neck) is a zero-dependency simple async web server framework for registering request handlers
 
 # Why
