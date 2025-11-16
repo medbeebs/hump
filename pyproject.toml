@@ -1,6 +1,6 @@
 [project]
 name = "hump"
-version = "1.0.0"
+version = "1.1.0"
 description = "Hump (a defining part of grizzly's neck) is a zero-dependency simple async web server framework for registering request handlers"
 readme = "README.md"
 license = "MIT"
@@ -31,7 +31,9 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
     "Topic :: Internet :: WWW/HTTP",
 ]
-dependencies = []
+dependencies = [
+    "orjson>=3.11.4",
+]
 
 [project.urls]
 Homepage = "https://github.com/medbeebs/hump"

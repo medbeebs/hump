@@ -5,7 +5,7 @@ from types import CoroutineType
 from typing import Any
 
 from . import statuses
-from .models import HttpMethod, Request, Response
+from .models import HttpMethod, JsonResponse, Request, Response
 
 logger = logging.getLogger(__name__)
 
@@ -126,13 +126,17 @@ class Hump:
             if handler:
                 response = await handler(request)
                 if not isinstance(response, Response):
-                    response = Response(response)
+                    if isinstance(response, (list, tuple, dict)):
+                        response = JsonResponse(response)
+                    else:
+                        response = Response(response)
             else:
                 response = Response("Not Found", statuses.NOT_FOUND_404)
 
+            response_bytes = response.to_bytes()
             logger.debug(f"Outgoing response:\n{response}")
 
-            await loop.sock_sendall(conn, response.to_bytes())
+            await loop.sock_sendall(conn, response_bytes)
         finally:
             conn.close()
 
